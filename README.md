@@ -2,7 +2,6 @@
 
 
 
-# Description:  
 The **IPL Merch Store** is a fully functional e-commerce platform dedicated to selling merchandise and collectibles related to the Indian Premier League (IPL). This project aims to provide cricket enthusiasts with an intuitive and seamless shopping experience for official team jerseys, caps, posters, accessories, and other IPL-related products.  
 
 The platform is built using modern web technologies and follows a modular design, making it easy to customize and extend. It's perfect for developers looking to explore e-commerce solutions or businesses aiming to establish an IPL-themed online store.  
