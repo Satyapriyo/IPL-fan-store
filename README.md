@@ -1,4 +1,4 @@
-# IPL Merch Store - GitHub Project Description
+# IPL Merch Store
 
 
 
