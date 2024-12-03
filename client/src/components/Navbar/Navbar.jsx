@@ -7,21 +7,25 @@ import {
   MenuItem,
   MenuItems,
 } from "@headlessui/react";
+import React, { useContext } from "react";
+import ThemeContext from "../../context/ThemeContext";
 import { Link } from "react-router-dom";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import user from "../../assets/user.png";
-const navigation = [{ name: "Dashboard", href: "#", current: true }];
+const navigation = [{ name: "Dashboard", href: "/home", current: false }];
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Navbar() {
+  const { theme } = useContext(ThemeContext);
   const handleLogout = () => {
     localStorage.setItem("user", null);
   };
+  console.log(theme);
   return (
     <div className="">
-      <Disclosure as="nav" className="bg-slate-500 ">
+      <Disclosure as="nav" className={`bg-${theme}-primary`}>
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -56,8 +60,8 @@ export default function Navbar() {
                       aria-current={item.current ? "page" : undefined}
                       className={classNames(
                         item.current
-                          ? "bg-slate-300 text-black"
-                          : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                          ? ` text-white bg-slate-200`
+                          : `text-white bg-black hover:bg-blue-900 `,
                         "rounded-md px-3 py-2 text-sm font-medium"
                       )}
                     >

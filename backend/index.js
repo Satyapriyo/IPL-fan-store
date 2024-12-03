@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const authRouter =  require("./routes/auth")
 const mongoose = require("mongoose");
+const productsRoute = require("./routes/products")
 
 
 require("dotenv").config();
@@ -22,7 +23,8 @@ mongoose.connect(process.env.MONGO_URL).then(()=>{
 }).catch((err)=>{
     console.log("Error connecting database 💀" + err)
 })
-app.use("/api/auth",authRouter)
+app.use("/api/auth",authRouter);
+app.use("/api",productsRoute);
 
 app.listen(5000,()=>{
     console.log("It's working !!")
