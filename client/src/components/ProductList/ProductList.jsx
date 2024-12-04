@@ -51,20 +51,33 @@ import axios from "axios";
 //     color: "Black",
 //   },
 // ];
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import ProductDetails from "../../pages/ProductDetails";
+import ThemeContext from "../../context/ThemeContext";
 import { Link } from "react-router-dom";
+import Spinner from "../Spinner/spinner";
+
 export default function ProductList() {
+  const { theme } = useContext(ThemeContext);
   const [allProducts, setAllProducts] = useState([]);
+  const [fetching, setFetching] = useState(true);
   const url = import.meta.env.VITE_API_URL;
   useEffect(() => {
+    setFetching(true);
     const newProducts = async () => {
       const res = await axios.get(`${url}/product/`);
       setAllProducts(res.data);
     };
     newProducts();
     window.scrollTo(0, 0);
+    setTimeout(() => {
+      console.log("nothing ...");
+    }, 1000);
+    setFetching(false);
   }, []);
+  if (fetching) {
+    return <Spinner />;
+  }
   console.log(allProducts);
   return (
     <div className="bg-white">
@@ -77,7 +90,7 @@ export default function ProductList() {
             <Link
               key={product._id}
               to={`/product/${product._id}`}
-              className="group relative"
+              className="group relative "
             >
               <img
                 alt="product image"
@@ -96,9 +109,17 @@ export default function ProductList() {
                     {product.reviews} reviews
                   </p>
                 </div>
-                <p className="text-sm font-medium text-gray-900">
-                  {product.price}$
-                </p>
+                <div>
+                  <p className="text-lg mb-3 font-medium text-gray-900">
+                    {product.price}$
+                  </p>
+                  <Link
+                    to="/payment"
+                    className={`bg-${theme}-primary px-1 text-xs rounded-md py-1 duration-200`}
+                  >
+                    Buy Now
+                  </Link>
+                </div>
               </div>
             </Link>
           ))}

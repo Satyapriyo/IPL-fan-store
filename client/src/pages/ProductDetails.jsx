@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { Radio, RadioGroup } from "@headlessui/react";
 import Navbar from "../components/Navbar/Navbar";
 import axios from "axios";
 
+import ThemeContext from "../context/ThemeContext";
+import Footer from "../components/Footer/Footer";
+import { Link } from "react-router-dom";
 const product = {
   name: "Basic Tee 6-Pack",
   price: "$192",
@@ -63,8 +66,11 @@ function classNames(...classes) {
 }
 
 export default function ProductDetails() {
+  const user = localStorage.getItem("user");
   const [products, setProducts] = useState([]);
   const path = location.pathname.split("/")[2];
+  const { theme } = useContext(ThemeContext);
+  const city = JSON.parse(user)["favCity"];
   const url = import.meta.env.VITE_API_URL;
   // console.log(path);
   useEffect(() => {
@@ -79,7 +85,7 @@ export default function ProductDetails() {
   }, [path]);
   return (
     <div className="bg-white">
-      <Navbar />
+      <Navbar city={city} />
       <div className="pt-6">
         <nav aria-label="Breadcrumb">
           <ol
@@ -265,18 +271,18 @@ export default function ProductDetails() {
                 </fieldset>
               </div> */}
 
-              <button
-                type="submit"
-                className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              <Link
+                to="/payment"
+                className={`mt-10 flex w-full items-center justify-center rounded-md border bg-${theme}-secondary border-transparent  px-8 py-3 text-base font-medium text-white  focus:outline-none focus:ring-2  focus:ring-offset-2`}
               >
                 Buy Now
-              </button>
-              <button
+              </Link>
+              {/* <button
                 type="submit"
                 className="mt-2 flex w-full items-center justify-center rounded-md border border-transparent bg-slate-200 px-8 py-3 text-base font-medium text-black hover:bg-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-200 focus:ring-offset-2"
               >
                 Add to bag
-              </button>
+              </button> */}
             </form>
           </div>
 
@@ -314,6 +320,7 @@ export default function ProductDetails() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

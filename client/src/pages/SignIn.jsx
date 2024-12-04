@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import logo from "../assets/store-logo.png";
 export default function SignIn() {
   const url = import.meta.env.VITE_API_URL;
   const [isFetching, setIsFetching] = useState(false);
@@ -29,13 +30,9 @@ export default function SignIn() {
   };
   return (
     <div className="text-left mt-[10vh] mb-[10vh] rounded-lg">
-      <div className="flex bg-white shadow-xl md:max-w-[300px] mx-auto min-h-full flex-1 flex-col justify-center px-6 pt-2 pb-8 lg:px-8">
+      <div className="flex bg-white shadow-2xl md:max-w-[300px] mx-auto min-h-full flex-1 flex-col justify-center px-6 pt-2 pb-8 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <img
-            alt="Your Company"
-            src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
-            className="mx-auto h-10 w-auto"
-          />
+          <img alt="Your Company" src={logo} className="mx-auto h-24 w-auto" />
           <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
             Create an account
           </h2>
@@ -115,7 +112,7 @@ export default function SignIn() {
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="flex w-full justify-center rounded-md bg-slate-900 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-600"
               >
                 Sign In
               </button>

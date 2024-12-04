@@ -17,7 +17,10 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Navbar() {
+export default function Navbar({ city }) {
+  console.log(city);
+  const logoName = city.toLowerCase();
+  console.log(logoName);
   const { theme } = useContext(ThemeContext);
   const handleLogout = () => {
     localStorage.setItem("user", null);
@@ -47,8 +50,8 @@ export default function Navbar() {
               <div className="flex shrink-0 items-center">
                 <img
                   alt="Your Company"
-                  src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
-                  className="h-8 w-auto"
+                  src={`../../../public/${logoName}.png`}
+                  className="h-10 w-auto"
                 />
               </div>
               <div className="hidden sm:ml-6 sm:block">
@@ -61,7 +64,7 @@ export default function Navbar() {
                       className={classNames(
                         item.current
                           ? ` text-white bg-slate-200`
-                          : `text-white bg-black hover:bg-blue-900 `,
+                          : `text-white bg-[rgba(69, 90, 100, 0.53)] font-extrabold duration-200 hover:bg-blue-900 `,
                         "rounded-md px-3 py-2 text-sm font-medium"
                       )}
                     >
@@ -96,23 +99,23 @@ export default function Navbar() {
                 </div>
                 <MenuItems
                   transition
-                  className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+                  className="absolute right-0 z-10 mt-2 w-44 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
                 >
-                  <MenuItem>
+                  {/* <MenuItem>
                     <a
                       href="#"
                       className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:outline-none"
                     >
                       Your Profile
                     </a>
-                  </MenuItem>
+                  </MenuItem> */}
                   <MenuItem>
-                    <a
-                      href="#"
+                    <Link
+                      to="/settings"
                       className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:outline-none"
                     >
                       Settings
-                    </a>
+                    </Link>
                   </MenuItem>
                   <MenuItem>
                     <Link

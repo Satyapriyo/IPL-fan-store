@@ -5,6 +5,7 @@ const cors = require("cors");
 const authRouter =  require("./routes/auth")
 const mongoose = require("mongoose");
 const productsRoute = require("./routes/products")
+const userRoute = require("./routes/user")
 
 
 require("dotenv").config();
@@ -25,6 +26,7 @@ mongoose.connect(process.env.MONGO_URL).then(()=>{
 })
 app.use("/api/auth",authRouter);
 app.use("/api",productsRoute);
+app.use("/api",userRoute);
 
 app.listen(5000,()=>{
     console.log("It's working !!")
