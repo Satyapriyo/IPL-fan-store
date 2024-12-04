@@ -11,21 +11,18 @@ The platform is built using modern web technologies and follows a modular design
  # Key Features: 
 - **User-Friendly Interface:** A responsive and intuitive UI for a seamless browsing and shopping experience on desktops, tablets, and mobiles.  
 - **Product Catalog:** Browse and filter a wide range of IPL merchandise by team, type, or price.  
-- **Shopping Cart & Checkout:** Add items to a cart and proceed with a secure and smooth checkout process.  
-- **Secure Payment Integration:** Support for multiple payment gateways like Razorpay, Stripe, and PayPal.  
-- **User Accounts:** Authentication and user profile management, including order history and saved addresses.  
-- **Admin Dashboard:** Manage products, categories, inventory, and orders efficiently.  
-- **Wishlist:** Users can save their favorite products for future purchases.  
-- **Search & Sorting:** Powerful search functionality with sorting options for price, popularity, and relevance.  
-- **Team Pages:** Dedicated sections for each IPL team with themed merchandise.  
+- **Shopping Cart:** Proceed with a secure and smooth checkout process.  
+- **Secure Payment Integration:** Payment page is in progress so for now a dummy page is added.  
+- **User Accounts:** Authentication and user profile management, user can change the city of registration.  
+- **Wishlist:** Users can save their favorite products for future purchases.   
 
 ---
 
 # Tech Stack:  
 - **Frontend:** React.js for a dynamic user interface.  
-- **Backend:** Node.js with Express.js or Django for API and business logic.  
-- **Database:** MongoDB or MySQL/PostgreSQL for storing product data, user details, and orders.  
-- **Payment Gateways:** Razorpay, Stripe, or PayPal integration for transactions.  
+- **Backend:** Node.js with Express.js for API and business logic.  
+- **Database:** MongoDB for storing product data, user details.  
+- **Payment Gateways:** Razorpay integration for transaction.  
 - **Authentication:** JSON Web Tokens (JWT) or OAuth for secure user authentication.  
 
 ---
@@ -33,8 +30,8 @@ The platform is built using modern web technologies and follows a modular design
 # Getting Started:  
 Clone this repository and follow the setup instructions in the README to deploy your own IPL-themed e-commerce platform. Contributions are welcome to enhance features or improve scalability.  
 
-**Demo Link:** [Insert Live Demo Link Here]  
-**Documentation:** [Insert Documentation Link Here]  
+**Link:** [https://ipl-fan-store.vercel.app/]  
+ 
 
 ---
 
