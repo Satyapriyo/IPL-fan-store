@@ -30,7 +30,7 @@ The platform is built using modern web technologies and follows a modular design
 # Getting Started:  
 Clone this repository and follow the setup instructions in the README to deploy your own IPL-themed e-commerce platform. Contributions are welcome to enhance features or improve scalability.  
 
-**Demo Link:** [https://ipl-fan-store.vercel.app/]  
+**Link:** [https://ipl-fan-store.vercel.app/]  
  
 
 ---
